@@ -1,0 +1,13 @@
+test:
+  hello: value6
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: hello
+          uri: http://localhost:8080
+          predicates:
+            - Path=/v3/hello
+          filters:
+            - RewritePath=/v3/hello, /hello
